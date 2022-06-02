@@ -63,6 +63,22 @@ export class AnnonceService {
     return this.getAnnonces();
   }
 
+  edit(newAnnounce : IAnnonce): Observable<any>{
+    //Remove old value
+    this.internalAnnounceList = this.internalAnnounceList.filter(value => value.annonceId != newAnnounce.annonceId);
+
+    //Add new value
+    this.internalAnnounceList.push(newAnnounce);
+
+    return of(null);
+  }
+
+  add(newAnnounce : IAnnonce): Observable<IAnnonce>{
+    //Add new value
+    this.internalAnnounceList.push(newAnnounce);
+    return of(newAnnounce);
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

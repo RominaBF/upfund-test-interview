@@ -7,7 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import {RouterModule} from "@angular/router";
 import { AnnonceListComponent } from './annonce/annonce-list.component';
 import { AnnonceDetailComponent } from './annonce/annonce-detail.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { BackBtnComponent } from './back-btn/back-btn.component';
 
@@ -22,19 +22,20 @@ import { BackBtnComponent } from './back-btn/back-btn.component';
 
 
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot([
-      {path: 'login', component: LoginComponent},
-      {path: 'signup', component: SignupComponent},
-      {path: 'annonce', component: AnnonceListComponent},
-      {path: 'annonce/:id', component: AnnonceDetailComponent},
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: '**', redirectTo: 'login', pathMatch: 'full'}
-    ]),
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot([
+            {path: 'login', component: LoginComponent},
+            {path: 'signup', component: SignupComponent},
+            {path: 'annonce', component: AnnonceListComponent},
+            {path: 'annonce/:id', component: AnnonceDetailComponent},
+            {path: '', redirectTo: 'login', pathMatch: 'full'},
+            {path: '**', redirectTo: 'login', pathMatch: 'full'}
+        ]),
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -3,13 +3,45 @@
 
 
 
-  <div *ngIf="annonce">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <form>
+            <form [formGroup]="form">
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text"
+                       class="form-control"
+                       id="address"
+                       formControlName="address"
+                       placeholder="Enter a valid address">
+
+                <span class="has-error" *ngIf="form.controls.address.errors">{{form.controls['address'].errors | json}}</span>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text"
+                       class="form-control"
+                       id="name"
+                       formControlName="name"
+                       placeholder="Name of the announce">
+              </div>
+
+              <button [disabled]="form.invalid" (click)="onSubmitForm()" type="submit" class="btn btn-primary">Save</button>
+
+            </form>
 
 
-
-    {{annonce.annonceName}}
-
+            <br>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
+
+
 
   <app-back-btn></app-back-btn>
 
