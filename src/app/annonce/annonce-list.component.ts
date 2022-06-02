@@ -32,8 +32,10 @@ export class AnnonceListComponent implements OnInit, OnDestroy {
 
   performFilter(filteBy: string): IAnnonce[] {
     filteBy = filteBy.toLowerCase();
+    // @ts-ignore
     return this.annonces.filter((annonce: IAnnonce) =>
-      annonce.annonceName.toLowerCase().includes(filteBy)) };
+      annonce.annonceName.toLowerCase().includes(filteBy))
+  };
 
   constructor(private annonceService: AnnonceService) { }
 

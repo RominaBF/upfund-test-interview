@@ -1,6 +1,16 @@
 <div class='card'>
 <!--  {{pageTitle + ': ' + annonce?.annonceName}}-->
-  <div>
-   <app-back-btn></app-back-btn>
+
+
+
+  <div *ngIf="annonce">
+
+
+
+    {{annonce.annonceName}}
+
   </div>
+
+  <app-back-btn></app-back-btn>
+
 </div>

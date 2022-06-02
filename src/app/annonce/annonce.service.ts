@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Observable, tap, catchError, throwError} from "rxjs";
 import {IAnnonce} from "./annonce";
 import { of } from 'rxjs';
+import {anySymbolName} from "@angular/core/schematics/migrations/typed-forms/util";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { of } from 'rxjs';
 export class AnnonceService {
   private annonceUrl = 'api/annonces/annonces.json';
 
-  internalAnnounceList :IAnnonce[] = [
+  internalAnnounceList : IAnnonce[] = [
     {
       "annonceId": 1,
       "annonceName": "studio",
@@ -49,6 +50,12 @@ export class AnnonceService {
 
   getAnnonces(): Observable<IAnnonce[]> {
       return of(this.internalAnnounceList)
+  }
+
+  getOne(id : number): Observable<IAnnonce> {
+   // @ts-ignore
+    const found : IAnnonce = this.internalAnnounceList.find(value => value.annonceId === id);
+    return of(found)
   }
 
   addAnnounce(newAnnounce : IAnnonce): Observable<IAnnonce[]>{

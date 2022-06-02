@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 import {IAnnonce} from "./annonce";
 import {AnnonceService} from "./annonce.service";
 
@@ -11,24 +11,26 @@ import {AnnonceService} from "./annonce.service";
 })
 export class AnnonceDetailComponent implements OnInit {
   pageTitle: string = "Annonce";
-  annonce: IAnnonce[] | undefined;
-  errorMessage = '';
+  annonce: IAnnonce;
+  errorMessage: string;
 
-  constructor(private route: ActivatedRoute, private annonceService: AnnonceService) { }
+  constructor(private route: ActivatedRoute, private annonceService: AnnonceService) {
+  }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.pageTitle += `: ${id}`;
-    // if (id) {
-    // this.getAnnonce(id);
-    // }
+
+    this.getAnnonce(id);
+
   }
 
-  // getAnnonce(id: number): void {
-  //   this.annonceService.getAnnonces(id).subscribe({
-  //     next: annonce => this.annonce = annonce,
-  //     error: err => this.errorMessage = err
-  //   });
-  // }
+  getAnnonce(id: number): void {
+    this.annonceService.getOne(id).subscribe(value => {
+      this.annonce = value;
+    },error => {
+      this.errorMessage = error.toString();
+    });
+  }
 
 }
