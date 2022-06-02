@@ -1,0 +1,29 @@
+[
+  {
+    "annonceId": 1,
+    "annonceName": "studio",
+    "annonceAddress": "Lile",
+    "description": "1 pièce, 24 m², Étage 4",
+    "price": 850,
+    "annonceType": "Location",
+    "imageUrl": "assets/images/studio.png"
+  },
+  {
+    "annonceId": 2,
+    "annonceName": "Appartement Meublé",
+    "annonceAddress": "Lyon",
+    "description": "2 pièces, 1 chambre, 45 m², Étage 2",
+    "price": 1500,
+    "annonceType": "Location",
+    "imageUrl": "assets/images/appartement.png"
+  },
+  {
+    "annonceId": 3,
+    "annonceName": "Duplex meublé",
+    "annonceAddress": "Paris",
+    "description": "2 pièces, 1 chambre, 35 m², Étage 5",
+    "price": 170000,
+    "annonceType": "Vent",
+    "imageUrl": "assets/images/duplex.png"
+  }
+]
