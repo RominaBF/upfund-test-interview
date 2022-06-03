@@ -10,6 +10,7 @@ import { AnnonceDetailComponent } from './annonce/annonce-detail.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { BackBtnComponent } from './back-btn/back-btn.component';
+import { RominaxComponent } from './rominax/rominax.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BackBtnComponent } from './back-btn/back-btn.component';
     AnnonceListComponent,
     AnnonceDetailComponent,
     BackBtnComponent,
+    RominaxComponent,
 
 
   ],
